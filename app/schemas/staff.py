@@ -1,6 +1,6 @@
 from pydantic import BaseModel, EmailStr, Field
 from typing import Optional
-from models import RoleEnum
+from app.models import RoleEnum
 from datetime import datetime
 
 class StaffBase(BaseModel):
@@ -26,7 +26,7 @@ class StaffResponse(BaseModel):
     created_at: datetime
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class StaffLogin(BaseModel):
     email: EmailStr
