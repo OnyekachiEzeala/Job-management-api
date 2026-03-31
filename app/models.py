@@ -35,6 +35,8 @@ class Job(Base):
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String, index=True)
     description = Column(String, nullable=True)
+    start_time = Column(DateTime(timezone = True), nullable=False)
+    end_time = Column(DateTime(timezone = True), nullable=False)
     status = Column(String, default=JobStatus.pending.value)
     assigned_to = Column(Integer, ForeignKey("staff.id"), nullable=True)
     created_at = Column(

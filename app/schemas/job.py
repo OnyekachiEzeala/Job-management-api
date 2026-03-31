@@ -6,6 +6,8 @@ from models import JobStatus
 class JobBase(BaseModel):
     title: str
     description: Optional[str] = None
+    start_time: datetime
+    end_time: datetime
     status: JobStatus = JobStatus.pending
     assigned_to: Optional[int] = None
 
@@ -15,6 +17,8 @@ class JobCreate(JobBase):
 class JobUpdate(BaseModel):
     title: Optional[str] = None
     description: Optional[str] = None
+    start_time: datetime | None = None
+    end_time: datetime | None = None
     status: Optional[JobStatus] = None
     assigned_to: Optional[int] = None
 
