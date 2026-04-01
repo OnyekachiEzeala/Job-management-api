@@ -1,7 +1,7 @@
 from pydantic import BaseModel, EmailStr
 from typing import Optional
 from datetime import datetime
-from models import JobStatus
+from app.models import JobStatus
 
 class JobBase(BaseModel):
     title: str
@@ -26,10 +26,12 @@ class JobResponse(BaseModel):
     id: int
     title: str
     description: Optional[str] = None
+    start_time: datetime
+    end_time: datetime
     status: JobStatus
     assigned_to: Optional[int] = None
     created_at: datetime
     updated_at: datetime
 
     class Config:
-        orm_mode = True
+        from_attributes = True

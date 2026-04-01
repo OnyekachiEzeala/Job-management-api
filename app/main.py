@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.logger import get_logger
 from app.routers.auth import router as auth_router
+from app.routers.job import router as job_router
 
 logger = get_logger(__name__)
 
@@ -25,3 +26,4 @@ def read_root():
     return {"message": "Welcome to the Job Management API"}
 
 app.include_router(auth_router)
+app.include_router(job_router)
