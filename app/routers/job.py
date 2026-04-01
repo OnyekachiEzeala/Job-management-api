@@ -11,7 +11,7 @@ from app.logger import get_logger
 
 logger = get_logger(__name__)
 router = APIRouter(
-    prefix="/jobs",
+    prefix="/api/v1/jobs",
     tags=["jobs"],
 )
 

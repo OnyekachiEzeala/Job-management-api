@@ -10,7 +10,7 @@ from app.security import get_current_user
 logger = get_logger(__name__)
 
 router = APIRouter(
-    prefix="/auth",
+    prefix="/api/v1/auth",
     tags=["authentication"],
 )
 
